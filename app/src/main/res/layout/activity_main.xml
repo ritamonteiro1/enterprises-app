@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/beige"
-        tools:context=".MainActivity">
+        tools:context=".activity.MainActivity">
 
         <ImageView
             android:id="@+id/mainLogoImageView"
@@ -61,6 +61,7 @@
             android:background="@color/charcoal_grey"
             android:textColorHint="@color/main_edit_text"
             app:boxBackgroundColor="@color/beige"
+            app:errorTextColor="@color/neon_red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainPresentationTextView">
@@ -88,6 +89,7 @@
             android:background="@color/charcoal_grey"
             android:textColorHint="@color/main_edit_text"
             app:boxBackgroundColor="@color/beige"
+            app:errorTextColor="@color/neon_red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainEmailTextInputLayout">
@@ -100,12 +102,13 @@
                 android:drawableStart="@drawable/img_padlock"
                 android:fontFamily="sans-serif"
                 android:hint="@string/main_password"
-                android:inputType="textPassword"
+                android:inputType="numberPassword"
                 android:letterSpacing="-0.01"
                 android:lineSpacingExtra="3.5sp"
                 android:textColor="@color/main_edit_text"
                 android:textSize="17sp"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                app:textInputLayoutFocusedRectEnabled="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
