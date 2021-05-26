@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Ioasys</string>
     <string name="main_logo_content_description">Logotipo da Ioasys</string>
+    <string name="welcome_to_companies">BEM-VINDO AO EMPRESAS</string>
+    <string name="main_welcome_content_description">Bem-vindo ao Empresas</string>
+    <string name="main_presentation">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</string>
+    <string name="main_email">E-mail</string>
+    <string name="main_password">Senha</string>
+    <string name="main_login">ENTRAR</string>
 </resources>

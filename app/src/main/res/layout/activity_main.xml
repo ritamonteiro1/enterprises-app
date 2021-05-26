@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
@@ -9,13 +10,108 @@
 
     <ImageView
         android:id="@+id/mainLogoImageView"
-        android:layout_width="0dp"
+        android:layout_width="184.5dp"
         android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="41dp"
+        android:contentDescription="@string/main_logo_content_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/main_logo_content_description"
-        app:srcCompat="@drawable/logo_home" />
+        app:srcCompat="@drawable/img_home" />
+
+    <TextView
+        android:id="@+id/mainWelcomeTextView"
+        android:layout_width="146.5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:contentDescription="@string/main_welcome_content_description"
+        android:text="@string/welcome_to_companies"
+        android:textAlignment="center"
+        android:textColor="@color/charcoal_grey"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainLogoImageView" />
+
+    <TextView
+        android:id="@+id/mainPresentationTextView"
+        android:layout_width="273dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/main_presentation"
+        android:textAlignment="center"
+        android:textColor="@color/charcoal_grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainWelcomeTextView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mainEmailTextInputLayout"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/charcoal_grey"
+        android:textColorHint="@color/main_edit_text"
+        app:boxBackgroundColor="@color/beige"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainPresentationTextView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mainEmailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/beige"
+            android:drawableStart="@drawable/img_email"
+            android:fontFamily="sans-serif"
+            android:hint="@string/main_email"
+            android:inputType="textEmailAddress"
+            android:letterSpacing="-0.01"
+            android:lineSpacingExtra="3.5sp"
+            android:textColor="@color/main_edit_text"
+            android:textSize="17sp"
+            android:textStyle="normal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mainPasswordTextInputLayout"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:background="@color/charcoal_grey"
+        android:textColorHint="@color/main_edit_text"
+        app:boxBackgroundColor="@color/beige"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainEmailTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mainPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/beige"
+            android:drawableStart="@drawable/img_padlock"
+            android:fontFamily="sans-serif"
+            android:hint="@string/main_password"
+            android:inputType="textPassword"
+            android:letterSpacing="-0.01"
+            android:lineSpacingExtra="3.5sp"
+            android:textColor="@color/main_edit_text"
+            android:textSize="17sp"
+            android:textStyle="normal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/mainLoginButton"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:backgroundTint="@color/blue"
+        android:text="@string/main_login"
+        app:cornerRadius="@dimen/radius_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainPasswordTextInputLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

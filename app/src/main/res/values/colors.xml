@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="beige">#ebe9d7</color>
+    <color name="charcoal_grey">#383743</color>
+    <color name="status_bar">#3B000000</color>
+    <color name="main_edit_text">#80383743</color>
+    <color name="blue">#57bbbc</color>
 </resources>
