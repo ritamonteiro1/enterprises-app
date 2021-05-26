@@ -5,7 +5,26 @@
     android:id="@+id/researchConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/beige"
     tools:context=".activity.ResearchActivity">
+
+    <TextView
+        android:id="@+id/researchInformationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:letterSpacing="-0.01"
+        android:lineSpacingExtra="3.5sp"
+        android:text="@string/research_information"
+        android:textColor="@color/charcoal_grey"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/researchToolBar" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/researchToolBar"
@@ -23,29 +42,12 @@
         android:id="@+id/researchLogoImageView"
         android:layout_width="117.1dp"
         android:layout_height="28.5dp"
+        android:contentDescription="@string/main_logo_content_description"
         app:layout_constraintBottom_toBottomOf="@+id/researchToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/researchToolBar"
-        app:srcCompat="@drawable/img_logo_nav"
-        android:contentDescription="@string/main_logo_content_description" />
-
-    <TextView
-        android:id="@+id/researchInformationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/research_information"
-        android:textColor="@color/charcoal_grey"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal"
-        android:letterSpacing="-0.01"
-        android:lineSpacingExtra="3.5sp"
-        android:gravity="center_horizontal"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/researchToolBar" />
+        app:srcCompat="@drawable/img_logo_nav" />
 
     <SearchView
         android:id="@+id/researchSearchView"
@@ -56,5 +58,15 @@
         android:backgroundTint="@color/medium_pink"
         app:layout_constraintEnd_toEndOf="@+id/researchToolBar"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/researchRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/researchToolBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

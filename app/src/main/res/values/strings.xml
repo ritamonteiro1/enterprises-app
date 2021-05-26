@@ -9,4 +9,19 @@
     <string name="main_login">ENTRAR</string>
     <string name="enter_value_error_message">Credenciais informadas são inválidas, tente novamente.</string>
     <string name="research_information">Clique na busca para iniciar.</string>
+    <string name="company_one">Empresa 1</string>
+    <string name="company_two">Empresa 2</string>
+    <string name="company_three">Empresa 3</string>
+    <string name="company_four">Empresa 4</string>
+    <string name="company_five">Empresa 5</string>
+    <string name="company_six">Empresa 6</string>
+    <string name="company_seven">Empresa 7</string>
+    <string name="business">Negócio</string>
+    <string name="country">País</string>
+    <string name="img_company">Imagem da Empresa</string>
+    <string name="company_name">Empresa</string>
+    <string name="business">Negócio</string>
+    <string name="item_country">Brasil</string>
+
+
 </resources>

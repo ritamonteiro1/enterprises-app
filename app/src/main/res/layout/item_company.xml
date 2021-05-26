@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemCompanyConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/itemCompanyImageView"
+        android:layout_width="105dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/img_company"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_company" />
+
+    <TextView
+        android:id="@+id/itemCompanyNameTextView"
+        android:layout_width="110dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/company_name"
+        android:textColor="@color/dark_indigo"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/itemCompanyImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemCompanyTitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/business"
+        android:textColor="@color/warm_grey"
+        android:textSize="17sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/itemCompanyImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemCompanyCountryTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/item_country"
+        android:textColor="@color/warm_grey"
+        app:layout_constraintStart_toEndOf="@+id/itemCompanyImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
