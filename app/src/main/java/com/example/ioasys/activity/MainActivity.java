@@ -29,16 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupLoginButton() {
         mainLoginButton.setOnClickListener(v -> {
-            boolean isEmptyEmail = Utils.isEmptyField(mainEmailTextInputLayout, mainEmailEditText, this);
+            boolean isValidEmail = Utils.isValidEmail(mainEmailEditText, mainEmailTextInputLayout, this);
             boolean isEmptyPassword = Utils.isEmptyField(mainPasswordTextInputLayout, mainPasswordEditText, this);
-            if(isEmptyEmail || isEmptyPassword) return;
+            if(!isValidEmail || isEmptyPassword) return;
             user = new User(mainEmailEditText.getText().toString(), mainPasswordEditText.getText().toString());
-            boolean isValidEmail = user.isValidEmail(mainPasswordEditText.getText().toString());
-            if(isValidEmail) {
-                moveToResearchActivity();
-            } else {
-                mainPasswordTextInputLayout.setError(getString(R.string.enter_value_error_message));
-            }});
+            moveToResearchActivity();
+        });
     }
 
     private void moveToResearchActivity() {

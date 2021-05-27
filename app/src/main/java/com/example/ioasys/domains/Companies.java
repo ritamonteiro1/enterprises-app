@@ -1,6 +1,5 @@
 package com.example.ioasys.domains;
 
-import android.widget.ImageView;
 
 public class Companies {
     private final int image;
