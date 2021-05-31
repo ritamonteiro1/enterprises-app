@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.SearchView;
 
 import com.example.ioasys.R;
-import com.example.ioasys.domains.Companies;
+import com.example.ioasys.domains.Company;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,30 +21,30 @@ public class ResearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
         findViewsById();
-        List<Companies> companiesList = createCompanies();
+        List<Company> companiesList = createCompanies();
 
     }
 
-    private List<Companies> createCompanies() {
+    private List<Company> createCompanies() {
         String title = getString(R.string.business);
         String country = getString(R.string.country);
 
-        Companies company;
-        List<Companies> companiesList = new ArrayList<>();
+        Company company;
+        List<Company> companiesList = new ArrayList<>();
 
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
-        company = new Companies(R.drawable.img_company, getString(R.string.company_one), title, country);
+        company = new Company(R.drawable.img_company, getString(R.string.company_one), title, country);
         companiesList.add(company);
         return companiesList;
     }

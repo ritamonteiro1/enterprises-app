@@ -26,15 +26,16 @@ public class Utils {
         }
     }
 
-    public static boolean isValidEmail(EditText editText, TextInputLayout textInputLayout, Context context) {
+    public static boolean isValidEmail(EditText editText, TextInputLayout textInputLayout,
+                                       Context context) {
         String email = editText.getText().toString();
-        if(!email.isEmpty() && EMAIL_ADDRESS.matcher(email).matches()){
+        if (!email.isEmpty() && EMAIL_ADDRESS.matcher(email).matches()) {
             textInputLayout.setError(Constants.EMPTY);
             return true;
         } else {
             textInputLayout.setError(context.getString(R.string.enter_value_error_message));
             return false;
         }
-        }
     }
+}
 

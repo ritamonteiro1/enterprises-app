@@ -9,10 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="beige">#ebe9d7</color>
     <color name="charcoal_grey">#383743</color>
-    <color name="status_bar">#3B000000</color>
-    <color name="main_edit_text">#80383743</color>
+    <color name="black_3b">#3B000000</color>
+    <color name="grey">#80383743</color>
     <color name="blue">#57bbbc</color>
-    <color name="set_error">#57bbbc</color>
     <color name="neon_red">#ff0f44</color>
     <color name="medium_pink">#ee4c77</color>
     <color name="dark_indigo">#1a0e49</color>
