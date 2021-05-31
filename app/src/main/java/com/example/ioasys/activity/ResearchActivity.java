@@ -1,12 +1,13 @@
 package com.example.ioasys.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 
-import android.widget.SearchView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ioasys.R;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResearchActivity extends AppCompatActivity {
-    private SearchView researchSearchView;
+    private ImageView researchSearchImageView;
     private RecyclerView researchRecyclerView;
     private TextView researchInformationTextView;
 
@@ -27,7 +28,6 @@ public class ResearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
         findViewsById();
-        researchRecyclerView.setVisibility(View.INVISIBLE);
         List<Company> companyList = createCompanies();
         CompanyListAdapter companyListAdapter = new CompanyListAdapter(companyList, this);
         setupRecyclerView(companyListAdapter);
@@ -35,11 +35,14 @@ public class ResearchActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(CompanyListAdapter companyListAdapter) {
-            researchRecyclerView.setAdapter(companyListAdapter);
+        researchRecyclerView.setAdapter(companyListAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false);
+        researchRecyclerView.setLayoutManager(layoutManager);
     }
 
     private void setupSearchView() {
-        researchSearchView.setOnClickListener(v -> {
+        researchSearchImageView.setOnClickListener(v -> {
             researchInformationTextView.setVisibility(View.GONE);
             researchRecyclerView.setVisibility(View.VISIBLE);
         });
@@ -51,34 +54,34 @@ public class ResearchActivity extends AppCompatActivity {
         String description = getString(R.string.description_company);
 
         Company company;
-        List<Company> companiesList = new ArrayList<>();
+        List<Company> companyList = new ArrayList<>();
 
         company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
                 country, description);
-        companiesList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyList.add(company);
+        company = new Company(R.drawable.img_company, getString(R.string.company_two), title,
                 country, description);
-        companiesList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyList.add(company);
+        company = new Company(R.drawable.img_company, getString(R.string.company_three), title,
                 country, description);
-        companiesList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyList.add(company);
+        company = new Company(R.drawable.img_company, getString(R.string.company_four), title,
                 country, description);
-        companiesList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyList.add(company);
+        company = new Company(R.drawable.img_company, getString(R.string.company_five), title,
                 country, description);
-        companiesList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyList.add(company);
+        company = new Company(R.drawable.img_company, getString(R.string.company_six), title,
                 country, description);
-        companiesList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyList.add(company);
+        company = new Company(R.drawable.img_company, getString(R.string.company_seven), title,
                 country, description);
-        companiesList.add(company);
-        return companiesList;
+        companyList.add(company);
+        return companyList;
     }
 
     private void findViewsById() {
-        researchSearchView = findViewById(R.id.researchSearchView);
+        researchSearchImageView = findViewById(R.id.researchSearchImageView);
         researchRecyclerView = findViewById(R.id.researchRecyclerView);
         researchInformationTextView = findViewById(R.id.researchInformationTextView);
     }
