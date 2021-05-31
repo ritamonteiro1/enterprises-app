@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/beige"
-        tools:context=".activity.MainActivity">
+        tools:context=".activity.LoginActivity">
 
         <ImageView
             android:id="@+id/mainLogoImageView"
             android:layout_width="184.5dp"
             android:layout_height="45dp"
-            android:layout_marginTop="41dp"
+            android:layout_marginTop="42dp"
             android:contentDescription="@string/main_logo_content_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainPresentationTextView"
             app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="#EE4C77">
+            app:startIconTint="@color/neon_red">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/mainEmailEditText"
@@ -100,15 +100,15 @@
             app:errorTextColor="@color/neon_red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainEmailTextInputLayout">
+            app:layout_constraintTop_toBottomOf="@+id/mainEmailTextInputLayout"
+            app:startIconDrawable="@drawable/ic_padlock"
+            app:startIconTint="@color/neon_red">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/mainPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/beige"
-                android:drawableStart="@drawable/ic_padlock"
-                android:drawablePadding="@dimen/value"
                 android:fontFamily="sans-serif"
                 android:hint="@string/main_password"
                 android:inputType="numberPassword"

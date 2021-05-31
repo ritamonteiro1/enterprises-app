@@ -16,7 +16,7 @@ import com.example.ioasys.domains.User;
 import com.example.ioasys.utils.Utils;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText mainEmailEditText, mainPasswordEditText;
     private TextInputLayout mainEmailTextInputLayout, mainPasswordTextInputLayout;
     private Button mainLoginButton;
