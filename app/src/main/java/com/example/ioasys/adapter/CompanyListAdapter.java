@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +32,8 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
 
     @NonNull
     @Override
-    public CompanyListAdapter.CompanyListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CompanyListAdapter.CompanyListViewHolder onCreateViewHolder(ViewGroup parent,
+                                                                       int viewType) {
         View listItem = LayoutInflater.from(parent.getContext()).inflate(layout.item_company,
                 parent, false);
         return new CompanyListViewHolder(listItem);
@@ -74,4 +76,6 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
         }
     }
 }
+
+
 

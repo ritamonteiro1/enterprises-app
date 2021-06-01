@@ -1,15 +1,15 @@
 package com.example.ioasys.utils;
 
 import android.content.Context;
-import android.util.Patterns;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.example.ioasys.R;
 import com.example.ioasys.constants.Constants;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static android.util.Patterns.EMAIL_ADDRESS;
 
