@@ -13,9 +13,9 @@ import com.example.ioasys.utils.Utils;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText mainEmailEditText, mainPasswordEditText;
-    private TextInputLayout mainEmailTextInputLayout, mainPasswordTextInputLayout;
-    private Button mainLoginButton;
+    private EditText loginEmailEditText, loginPasswordEditText;
+    private TextInputLayout loginEmailTextInputLayout, loginPasswordTextInputLayout;
+    private Button loginLoginButton;
     private User user;
 
     @Override
@@ -23,42 +23,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         findViewsById();
-//        mainLoginButton.setVisibility(View.VISIBLE);
-//        mainLoginButton.setVisibility(View.INVISIBLE);
-//        mainLoginButton.setVisibility(View.GONE);
-
-//        mainPasswordEditText
-//        mainPasswordEditText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                String typedText = s.toString();
-//                if (typedText.length() > 3){
-//                    mainEmailEditText.setVisibility(View.GONE);
-//                }
-//            }
-//        });
         setupLoginButton();
     }
 
     private void setupLoginButton() {
-        mainLoginButton.setOnClickListener(v -> {
-            boolean isValidEmail = Utils.isValidEmail(mainEmailEditText, mainEmailTextInputLayout,
+        loginLoginButton.setOnClickListener(v -> {
+            boolean isValidEmail = Utils.isValidEmail(loginEmailEditText, loginEmailTextInputLayout,
                     this);
-            boolean isEmptyPassword = Utils.isEmptyField(mainPasswordTextInputLayout,
-                    mainPasswordEditText, this);
+            boolean isEmptyPassword = Utils.isEmptyField(loginPasswordTextInputLayout,
+                    loginPasswordEditText, this);
             if (!isValidEmail || isEmptyPassword) return;
-            user = new User(mainEmailEditText.getText().toString(),
-                    mainPasswordEditText.getText().toString());
+            user = new User(loginEmailEditText.getText().toString(),
+                    loginPasswordEditText.getText().toString());
             moveToResearchActivity();
         });
     }
@@ -69,10 +45,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void findViewsById() {
-        mainEmailEditText = findViewById(R.id.mainEmailEditText);
-        mainPasswordEditText = findViewById(R.id.mainPasswordEditText);
-        mainEmailTextInputLayout = findViewById(R.id.mainEmailTextInputLayout);
-        mainPasswordTextInputLayout = findViewById(R.id.mainPasswordTextInputLayout);
-        mainLoginButton = findViewById(R.id.mainLoginButton);
+        loginEmailEditText = findViewById(R.id.loginEmailEditText);
+        loginPasswordEditText = findViewById(R.id.loginPasswordEditText);
+        loginEmailTextInputLayout = findViewById(R.id.loginEmailTextInputLayout);
+        loginPasswordTextInputLayout = findViewById(R.id.loginPasswordTextInputLayout);
+        loginLoginButton = findViewById(R.id.loginLoginButton);
     }
 }

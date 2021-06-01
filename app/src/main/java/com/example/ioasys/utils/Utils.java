@@ -1,9 +1,6 @@
 package com.example.ioasys.utils;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.example.ioasys.R;
