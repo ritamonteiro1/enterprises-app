@@ -6,7 +6,8 @@
     <string name="main_email">E-mail</string>
     <string name="main_password">Senha</string>
     <string name="main_login">Entrar</string>
-    <string name="enter_value_error_message">Credenciais informadas são inválidas, tente novamente.</string>
+    <string name="fill_the_field">Preencha o campo</string>
+    <string name="incorrect_email">E-mail incorreto. Tente novamente.</string>
     <string name="research_information">Clique na busca para iniciar.</string>
     <string name="company_one">Empresa 1</string>
     <string name="company_two">Empresa 2</string>

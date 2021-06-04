@@ -41,12 +41,7 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
 
     @Override
     public void onBindViewHolder(CompanyListViewHolder holder, int position) {
-        holder.bind(companyList.get(position));
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, ResultActivity.class);
-            intent.putExtra(Constants.COMPANY_DETAILS, companyList.get(position));
-            context.startActivity(intent);
-        });
+        holder.bind(companyList.get(position), context);
     }
 
     @Override
@@ -68,11 +63,16 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
             itemCompanyTitleTextView = itemView.findViewById(R.id.itemCompanyTitleTextView);
         }
 
-        public void bind(Company company) {
+        public void bind(Company company, Context context) {
             itemCompanyTitleTextView.setText(company.getTitle());
             itemCompanyNameTextView.setText(company.getName());
             itemCompanyCountryTextView.setText(company.getCountry());
             itemCompanyImageView.setImageResource(company.getImage());
+            itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, ResultActivity.class);
+                intent.putExtra(Constants.COMPANY_DETAILS, company);
+                context.startActivity(intent);
+            });
         }
     }
 }
