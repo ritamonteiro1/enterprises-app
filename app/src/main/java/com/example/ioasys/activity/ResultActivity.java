@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.ioasys.R;
 import com.example.ioasys.constants.Constants;
-import com.example.ioasys.domains.Company;
+import com.example.ioasys.domains.CompanyResponse;
 
 public class ResultActivity extends AppCompatActivity {
     private ImageView resultCompanyImageView;
@@ -33,9 +33,9 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         findViewsById();
-        Company company = retrieverDataFromResearchActivity();
-        setupToolBar(company.getName());
-        showCompanyDetails(company);
+        CompanyResponse companyResponse = retrieverDataFromResearchActivity();
+        setupToolBar(companyResponse.getName());
+        showCompanyDetails(companyResponse);
     }
 
     private void setupToolBar(String companyName) {
@@ -47,9 +47,9 @@ public class ResultActivity extends AppCompatActivity {
     }
 
 
-    private void showCompanyDetails(Company company) {
-        resultCompanyImageView.setImageResource(company.getImage());
-        resultDescriptionCompanyTextView.setText(company.getDescription());
+    private void showCompanyDetails(CompanyResponse companyResponse) {
+        resultCompanyImageView.setImageResource(companyResponse.getImage());
+        resultDescriptionCompanyTextView.setText(companyResponse.getDescription());
     }
 
     private void findViewsById() {
@@ -58,7 +58,7 @@ public class ResultActivity extends AppCompatActivity {
         resultToolBar = findViewById(R.id.resultToolBar);
     }
 
-    private Company retrieverDataFromResearchActivity() {
-        return (Company) getIntent().getSerializableExtra(Constants.COMPANY_DETAILS);
+    private CompanyResponse retrieverDataFromResearchActivity() {
+        return (CompanyResponse) getIntent().getSerializableExtra(Constants.COMPANY_DETAILS);
     }
 }

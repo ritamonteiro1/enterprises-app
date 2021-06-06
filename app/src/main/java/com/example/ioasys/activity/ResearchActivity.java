@@ -18,7 +18,7 @@ import com.example.ioasys.R;
 import com.example.ioasys.adapter.CompanyListAdapter;
 
 import com.example.ioasys.constants.Constants;
-import com.example.ioasys.domains.Company;
+import com.example.ioasys.domains.CompanyResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +34,8 @@ public class ResearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_research);
         findViewsById();
         setupToolBar();
-        List<Company> companyList = createCompanies();
-        CompanyListAdapter companyListAdapter = new CompanyListAdapter(companyList, this);
+        List<CompanyResponse> companyResponseList = createCompanies();
+        CompanyListAdapter companyListAdapter = new CompanyListAdapter(companyResponseList, this);
         setupRecyclerView(companyListAdapter);
     }
 
@@ -80,36 +80,36 @@ public class ResearchActivity extends AppCompatActivity {
         researchRecyclerView.setLayoutManager(layoutManager);
     }
 
-    private List<Company> createCompanies() {
+    private List<CompanyResponse> createCompanies() {
         String title = getString(R.string.business);
         String country = getString(R.string.country);
         String description = getString(R.string.description_company);
 
-        Company company;
-        List<Company> companyList = new ArrayList<>();
+        CompanyResponse companyResponse;
+        List<CompanyResponse> companyResponseList = new ArrayList<>();
 
-        company = new Company(R.drawable.img_company, getString(R.string.company_one), title,
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_one), title,
                 country, description);
-        companyList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_two), title,
+        companyResponseList.add(companyResponse);
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_two), title,
                 country, description);
-        companyList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_three), title,
+        companyResponseList.add(companyResponse);
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_three), title,
                 country, description);
-        companyList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_four), title,
+        companyResponseList.add(companyResponse);
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_four), title,
                 country, description);
-        companyList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_five), title,
+        companyResponseList.add(companyResponse);
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_five), title,
                 country, description);
-        companyList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_six), title,
+        companyResponseList.add(companyResponse);
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_six), title,
                 country, description);
-        companyList.add(company);
-        company = new Company(R.drawable.img_company, getString(R.string.company_seven), title,
+        companyResponseList.add(companyResponse);
+        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_seven), title,
                 country, description);
-        companyList.add(company);
-        return companyList;
+        companyResponseList.add(companyResponse);
+        return companyResponseList;
     }
 
     private void findViewsById() {

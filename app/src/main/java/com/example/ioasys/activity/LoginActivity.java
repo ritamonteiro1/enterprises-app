@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ioasys.R;
-import com.example.ioasys.domains.User;
+import com.example.ioasys.domains.UserRequest;
 import com.example.ioasys.utils.Utils;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText loginEmailEditText, loginPasswordEditText;
     private TextInputLayout loginEmailTextInputLayout, loginPasswordTextInputLayout;
     private Button loginLoginButton;
-    private User user;
+    private UserRequest userRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             boolean isEmptyPassword = Utils.isEmptyField(loginPasswordTextInputLayout,
                     loginPasswordEditText, this);
             if (!isValidEmail || isEmptyPassword) return;
-            user = new User(loginEmailEditText.getText().toString(),
+            userRequest = new UserRequest(loginEmailEditText.getText().toString(),
                     loginPasswordEditText.getText().toString());
             moveToResearchActivity();
         });

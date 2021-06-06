@@ -15,18 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ioasys.R;
 import com.example.ioasys.activity.ResultActivity;
 import com.example.ioasys.constants.Constants;
-import com.example.ioasys.domains.Company;
+import com.example.ioasys.domains.CompanyResponse;
 
 import java.util.List;
 
 import static com.example.ioasys.R.layout;
 
 public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.CompanyListViewHolder> {
-    private final List<Company> companyList;
+    private final List<CompanyResponse> companyResponseList;
     private final Context context;
 
-    public CompanyListAdapter(List<Company> companyList, Context context) {
-        this.companyList = companyList;
+    public CompanyListAdapter(List<CompanyResponse> companyResponseList, Context context) {
+        this.companyResponseList = companyResponseList;
         this.context = context;
     }
 
@@ -41,12 +41,12 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
 
     @Override
     public void onBindViewHolder(CompanyListViewHolder holder, int position) {
-        holder.bind(companyList.get(position), context);
+        holder.bind(companyResponseList.get(position), context);
     }
 
     @Override
     public int getItemCount() {
-        return companyList.size();
+        return companyResponseList.size();
     }
 
     public static class CompanyListViewHolder extends RecyclerView.ViewHolder {
@@ -63,14 +63,14 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
             itemCompanyTitleTextView = itemView.findViewById(R.id.itemCompanyTitleTextView);
         }
 
-        public void bind(Company company, Context context) {
-            itemCompanyTitleTextView.setText(company.getTitle());
-            itemCompanyNameTextView.setText(company.getName());
-            itemCompanyCountryTextView.setText(company.getCountry());
-            itemCompanyImageView.setImageResource(company.getImage());
+        public void bind(CompanyResponse companyResponse, Context context) {
+            itemCompanyTitleTextView.setText(companyResponse.getTitle());
+            itemCompanyNameTextView.setText(companyResponse.getName());
+            itemCompanyCountryTextView.setText(companyResponse.getCountry());
+            itemCompanyImageView.setImageResource(companyResponse.getImage());
             itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, ResultActivity.class);
-                intent.putExtra(Constants.COMPANY_DETAILS, company);
+                intent.putExtra(Constants.COMPANY_DETAILS, companyResponse);
                 context.startActivity(intent);
             });
         }
