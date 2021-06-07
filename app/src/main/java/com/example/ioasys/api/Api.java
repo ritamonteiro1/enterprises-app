@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Api {
-    private static final String url = "https://empresas.ioasys.com.br/api/v1/";
+    private static final String BASE_URL = "https://empresas.ioasys.com.br/api/v1/";
 
     public static Retrofit setupRetrofit() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -17,7 +17,7 @@ public class Api {
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create()).build();
     }

@@ -7,7 +7,7 @@
     <string name="main_password">Senha</string>
     <string name="main_login">Entrar</string>
     <string name="fill_the_field">Preencha o campo</string>
-    <string name="incorrect_email">E-mail incorreto. Tente novamente.</string>
+    <string name="incorrect_email">Preencha o campo no formato de E-mail. Ex: abc@abc.com.br</string>
     <string name="research_information">Clique na busca para iniciar.</string>
     <string name="company_one">Empresa 1</string>
     <string name="company_two">Empresa 2</string>
@@ -28,5 +28,9 @@
     <string name="search">Pesquisar</string>
     <string name="search_view">Pesquisar</string>
     <string name="company_image">Imagem da empresa</string>
-
+    <string name="error_email_password">Credenciais inválidas. Tente novamente.</string>
+    <string name="alert_dialog_text">OK</string>
+    <string name="error_connection_fail">Falha na conexão com a internet, tente novamente.</string>
+    <string name="blank_space">\" \"</string>
+    <string name="ocurred_error">Ocorreu um erro. Tente novamente mais tarde.</string>
 </resources>

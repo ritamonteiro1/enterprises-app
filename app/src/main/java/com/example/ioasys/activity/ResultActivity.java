@@ -10,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.ioasys.R;
 import com.example.ioasys.constants.Constants;
-import com.example.ioasys.domains.CompanyResponse;
+import com.example.ioasys.domains.EnterpriseResponse;
 
 public class ResultActivity extends AppCompatActivity {
     private ImageView resultCompanyImageView;
@@ -33,23 +34,24 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         findViewsById();
-        CompanyResponse companyResponse = retrieverDataFromResearchActivity();
-        setupToolBar(companyResponse.getName());
-        showCompanyDetails(companyResponse);
+        EnterpriseResponse enterpriseResponse = retrieverDataFromResearchActivity();
+        setupToolBar(enterpriseResponse.getEnterpriseName());
+        showCompanyDetails(enterpriseResponse);
     }
 
-    private void setupToolBar(String companyName) {
+    private void setupToolBar(String enterpriseName) {
         setSupportActionBar(resultToolBar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(companyName);
+            getSupportActionBar().setTitle(enterpriseName);
         }
     }
 
 
-    private void showCompanyDetails(CompanyResponse companyResponse) {
-        resultCompanyImageView.setImageResource(companyResponse.getImage());
-        resultDescriptionCompanyTextView.setText(companyResponse.getDescription());
+    private void showCompanyDetails(EnterpriseResponse enterpriseResponse) {
+        Glide.with(this).load(Constants.BASE_IMAGE_URL + enterpriseResponse.getPhoto())
+                .into(resultCompanyImageView);
+        resultDescriptionCompanyTextView.setText(enterpriseResponse.getDescription());
     }
 
     private void findViewsById() {
@@ -58,7 +60,7 @@ public class ResultActivity extends AppCompatActivity {
         resultToolBar = findViewById(R.id.resultToolBar);
     }
 
-    private CompanyResponse retrieverDataFromResearchActivity() {
-        return (CompanyResponse) getIntent().getSerializableExtra(Constants.COMPANY_DETAILS);
+    private EnterpriseResponse retrieverDataFromResearchActivity() {
+        return (EnterpriseResponse) getIntent().getSerializableExtra(Constants.ENTERPRISE_RESPONSE_DETAILS);
     }
 }

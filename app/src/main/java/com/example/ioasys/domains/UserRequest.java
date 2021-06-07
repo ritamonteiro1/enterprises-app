@@ -1,6 +1,5 @@
 package com.example.ioasys.domains;
 
-
 public class UserRequest {
     private final String email;
     private final String password;

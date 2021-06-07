@@ -15,13 +15,18 @@ import android.widget.TextView;
 
 
 import com.example.ioasys.R;
-import com.example.ioasys.adapter.CompanyListAdapter;
+import com.example.ioasys.adapter.EnterpriseListAdapter;
 
-import com.example.ioasys.constants.Constants;
-import com.example.ioasys.domains.CompanyResponse;
+import com.example.ioasys.api.Api;
+import com.example.ioasys.api.DataService;
+import com.example.ioasys.domains.EnterpriseListResponse;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
+
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ResearchActivity extends AppCompatActivity {
     private RecyclerView researchRecyclerView;
@@ -34,14 +39,38 @@ public class ResearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_research);
         findViewsById();
         setupToolBar();
-        List<CompanyResponse> companyResponseList = createCompanies();
-        CompanyListAdapter companyListAdapter = new CompanyListAdapter(companyResponseList, this);
-        setupRecyclerView(companyListAdapter);
+    }
+
+    private void getCompanyResponse(Call<EnterpriseListResponse> call) {
+        call.enqueue(new Callback<EnterpriseListResponse>() {
+            @Override
+            public void onResponse(@NotNull Call<EnterpriseListResponse> call,
+                                   @NotNull Response<EnterpriseListResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    researchRecyclerView.setVisibility(View.VISIBLE);
+                    EnterpriseListResponse enterpriseListResponse = response.body();
+                    EnterpriseListAdapter enterpriseListAdapter =
+                            new EnterpriseListAdapter(enterpriseListResponse.getEnterprises(),
+                                    ResearchActivity.this);
+                    setupRecyclerView(enterpriseListAdapter);
+                } else {
+                    researchInformationTextView.setVisibility(View.VISIBLE);
+                    researchInformationTextView.setText(getString(R.string.ocurred_error));
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<EnterpriseListResponse> call,
+                                  @NotNull Throwable t) {
+                researchInformationTextView.setVisibility(View.VISIBLE);
+                researchInformationTextView.setText(getString(R.string.error_connection_fail));
+            }
+        });
     }
 
     private void setupToolBar() {
         setSupportActionBar(researchToolBar);
-        if(getSupportActionBar()!= null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setLogo(R.drawable.img_logo_nav);
             getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -62,10 +91,10 @@ public class ResearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                DataService dataService = Api.setupRetrofit().create(DataService.class);
+                Call<EnterpriseListResponse> call = dataService.recoverCompanyResponse(newText);
+                getCompanyResponse(call);
                 researchInformationTextView.setVisibility(View.GONE);
-                if (newText.length() >= Constants.TYPED_LETTERS) {
-                    researchRecyclerView.setVisibility(View.VISIBLE);
-                }
                 return false;
             }
         });
@@ -73,43 +102,11 @@ public class ResearchActivity extends AppCompatActivity {
     }
 
 
-    private void setupRecyclerView(CompanyListAdapter companyListAdapter) {
-        researchRecyclerView.setAdapter(companyListAdapter);
+    private void setupRecyclerView(EnterpriseListAdapter enterpriseListAdapter) {
+        researchRecyclerView.setAdapter(enterpriseListAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
         researchRecyclerView.setLayoutManager(layoutManager);
-    }
-
-    private List<CompanyResponse> createCompanies() {
-        String title = getString(R.string.business);
-        String country = getString(R.string.country);
-        String description = getString(R.string.description_company);
-
-        CompanyResponse companyResponse;
-        List<CompanyResponse> companyResponseList = new ArrayList<>();
-
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_one), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_two), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_three), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_four), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_five), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_six), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        companyResponse = new CompanyResponse(R.drawable.img_company, getString(R.string.company_seven), title,
-                country, description);
-        companyResponseList.add(companyResponse);
-        return companyResponseList;
     }
 
     private void findViewsById() {
