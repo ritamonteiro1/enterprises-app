@@ -58,10 +58,10 @@ public class EnterpriseListAdapter extends RecyclerView.Adapter<EnterpriseListAd
 
         public CompanyListViewHolder(View itemView) {
             super(itemView);
-            itemCompanyImageView = itemView.findViewById(R.id.itemCompanyImageView);
-            itemCompanyCountryTextView = itemView.findViewById(R.id.itemCompanyCountryTextView);
-            itemCompanyNameTextView = itemView.findViewById(R.id.itemCompanyNameTextView);
-            itemCompanyTitleTextView = itemView.findViewById(R.id.itemCompanyTitleTextView);
+            itemCompanyImageView = itemView.findViewById(R.id.itemEnterpriseImageView);
+            itemCompanyCountryTextView = itemView.findViewById(R.id.itemEnterpriseCountryTextView);
+            itemCompanyNameTextView = itemView.findViewById(R.id.itemEnterpriseNameTextView);
+            itemCompanyTitleTextView = itemView.findViewById(R.id.itemEnterpriseTypeTextView);
         }
 
         public void bind(EnterpriseResponse enterpriseResponse, Context context) {

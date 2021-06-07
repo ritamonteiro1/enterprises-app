@@ -28,7 +28,7 @@
         app:titleTextColor="@color/white"/>
 
     <ImageView
-        android:id="@+id/resultCompanyImageView"
+        android:id="@+id/resultEnterpriseImageView"
         android:layout_width="318dp"
         android:layout_height="155dp"
         android:layout_marginStart="20dp"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/img_company" />
 
     <TextView
-        android:id="@+id/resultDescriptionCompanyTextView"
+        android:id="@+id/resultDescriptionEnterpriseTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -51,7 +51,7 @@
         android:textColor="@color/warm_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultCompanyImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/resultEnterpriseImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
