@@ -19,10 +19,14 @@ import com.example.ioasys.adapter.EnterpriseListAdapter;
 
 import com.example.ioasys.api.Api;
 import com.example.ioasys.api.DataService;
+import com.example.ioasys.constants.Constants;
 import com.example.ioasys.domains.EnterpriseListResponse;
+import com.example.ioasys.domains.EnterpriseResponse;
 
 import org.jetbrains.annotations.NotNull;
 
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,12 +53,14 @@ public class ResearchActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     researchRecyclerView.setVisibility(View.VISIBLE);
                     EnterpriseListResponse enterpriseListResponse = response.body();
+                    treatEnterpriseListEmpty(enterpriseListResponse.getEnterprises());
                     EnterpriseListAdapter enterpriseListAdapter =
                             new EnterpriseListAdapter(enterpriseListResponse.getEnterprises(),
                                     ResearchActivity.this);
                     setupRecyclerView(enterpriseListAdapter);
                 } else {
                     researchInformationTextView.setVisibility(View.VISIBLE);
+                    researchRecyclerView.setVisibility(View.GONE);
                     researchInformationTextView.setText(getString(R.string.ocurred_error));
                 }
             }
@@ -63,9 +69,17 @@ public class ResearchActivity extends AppCompatActivity {
             public void onFailure(@NotNull Call<EnterpriseListResponse> call,
                                   @NotNull Throwable t) {
                 researchInformationTextView.setVisibility(View.VISIBLE);
+                researchRecyclerView.setVisibility(View.GONE);
                 researchInformationTextView.setText(getString(R.string.error_connection_fail));
             }
         });
+    }
+
+    private void treatEnterpriseListEmpty(List<EnterpriseResponse> enterpriseListResponse) {
+        if (enterpriseListResponse.isEmpty()){
+            researchInformationTextView.setVisibility(View.VISIBLE);
+            researchInformationTextView.setText(R.string.empty_list_error_message);
+        }
     }
 
     private void setupToolBar() {
@@ -91,8 +105,12 @@ public class ResearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                String accessToken = getIntent().getStringExtra(Constants.HEADER_ACCESS_TOKEN);
+                String uid = getIntent().getStringExtra(Constants.HEADER_UID);
+                String client = getIntent().getStringExtra(Constants.HEADER_CLIENT);
                 DataService dataService = Api.setupRetrofit().create(DataService.class);
-                Call<EnterpriseListResponse> call = dataService.recoverCompanyResponse(newText);
+                Call<EnterpriseListResponse> call = dataService.recoverCompanyResponse(newText,
+                        accessToken, client, uid);
                 getCompanyResponse(call);
                 researchInformationTextView.setVisibility(View.GONE);
                 return false;

@@ -32,24 +32,27 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
             android:textColor="@color/dark_indigo"
             android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Empresa
-" />
+            tools:text="Empresa" />
 
         <TextView
             android:id="@+id/itemEnterpriseTypeTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
             android:textColor="@color/warm_grey"
             android:textSize="17sp"
             android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
-            app:layout_constraintTop_toTopOf="@+id/itemEnterpriseNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseNameTextView"
             tools:text="Negócio" />
 
         <TextView
@@ -57,10 +60,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
-            android:layout_marginTop="26dp"
-            tools:text="Brasil"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
             android:textColor="@color/warm_grey"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemEnterpriseImageView"
-            app:layout_constraintTop_toTopOf="@+id/itemEnterpriseTypeTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/itemEnterpriseTypeTextView"
+            tools:text="Brasil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

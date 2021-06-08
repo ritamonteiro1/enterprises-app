@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ioasys.R;
 import com.example.ioasys.api.Api;
 import com.example.ioasys.api.DataService;
+import com.example.ioasys.constants.Constants;
 import com.example.ioasys.domains.UserRequest;
 import com.example.ioasys.utils.Utils;
 import com.google.android.material.textfield.TextInputLayout;
@@ -48,18 +49,19 @@ public class LoginActivity extends AppCompatActivity {
             if (!isValidEmail || isEmptyPassword) return;
             UserRequest userRequest = new UserRequest(loginEmailEditText.getText().toString(),
                     loginPasswordEditText.getText().toString());
-            setupProgressDialog();
+            showProgressDialog();
             DataService dataService = Api.setupRetrofit().create(DataService.class);
             Call<ResponseBody> call = dataService.recoverVerifyLogin(userRequest);
             doLogin(call);
         });
     }
 
-    private void setupProgressDialog() {
-        loginProgressDialog = new ProgressDialog(LoginActivity.this);
+    private void showProgressDialog() {
+        loginProgressDialog = new ProgressDialog(this);
         loginProgressDialog.show();
         loginProgressDialog.setContentView(R.layout.progress_dialog);
         loginProgressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        loginProgressDialog.setCancelable(false);
     }
 
     private void doLogin(Call<ResponseBody> call) {
@@ -68,8 +70,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(@NotNull Call<ResponseBody> call,
                                    @NotNull Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
+                    String accessToken = response.headers().get(Constants.HEADER_ACCESS_TOKEN);
+                    String uid = response.headers().get(Constants.HEADER_UID);
+                    String client = response.headers().get(Constants.HEADER_CLIENT);
                     loginProgressDialog.dismiss();
-                    moveToResearchActivity();
+                    moveToResearchActivity(accessToken, uid, client);
                 } else if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
                     loginProgressDialog.dismiss();
                     loginEmailTextInputLayout.setError(getString(R.string.blank_space));
@@ -99,8 +104,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void moveToResearchActivity() {
+    private void moveToResearchActivity(String accessToken, String uid, String client) {
         Intent intent = new Intent(this, ResearchActivity.class);
+        intent.putExtra(Constants.HEADER_ACCESS_TOKEN, accessToken);
+        intent.putExtra(Constants.HEADER_CLIENT, client);
+        intent.putExtra(Constants.HEADER_UID, uid);
         startActivity(intent);
     }
 

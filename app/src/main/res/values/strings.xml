@@ -21,10 +21,6 @@
     <string name="img_company">Imagem da Empresa</string>
     <string name="company_name">Empresa</string>
     <string name="item_country">Brasil</string>
-    <string name="description_company">"Lorem Ipsum is simply dummy text of the printing and typesetting " +
-                "industry. Lorem Ipsum has been the industry's standard dummy text ever since the" +
-                " 1500s, when an unknown printer took a galley of type and scrambled it to make a" +
-                " type specimen book. "</string>
     <string name="search">Pesquisar</string>
     <string name="search_view">Pesquisar</string>
     <string name="company_image">Imagem da empresa</string>
@@ -33,4 +29,5 @@
     <string name="error_connection_fail">Falha na conexão com a internet, tente novamente.</string>
     <string name="blank_space">\" \"</string>
     <string name="ocurred_error">Ocorreu um erro. Tente novamente mais tarde.</string>
+    <string name="empty_list_error_message">Não foram encontrados resultados para esta pesquisa.</string>
 </resources>
